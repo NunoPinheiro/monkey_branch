@@ -1,16 +1,19 @@
 ---
 # Example for experiment
 type: experiment
-groups:
-  - name: group1
+variant:
+  - name: variant1
+    percentage: 40
     variables:
       - Variable1: true
       - Variable2: "potato"
-  - name: group2
+  - name: variant2
+    percentage: 60
     variables:
       - Variable1: false
       - Variable2: "tomato"
 segments:
+  # Segments to which this experiment applies
   - segment1
   - segment2
 id: experimentId
@@ -18,6 +21,7 @@ id: experimentId
 # Example for configuration
 type: configuration
 segments:
+  # Segments to which this configuration applies
   - segment1
   - segment2
 variables:
