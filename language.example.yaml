@@ -30,6 +30,7 @@ variables:
 ---
 #Example for segment
 type: segment
+id: "segment1"
 conditions:
   # Attributes are either session, or custom attributes
   # Session attributes are things calculated by our backend (e.g country)
