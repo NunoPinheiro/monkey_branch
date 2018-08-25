@@ -1,5 +1,5 @@
 let md5 = require('md5')
-module.exports.calculate_variant = function(user, experiment){
+module.exports = function(user, experiment){
   // We are going to use the monkeyBranchId of the user if available
   // Else we revert to the user id
   let monkeyId = user.monkeyBranchId || user.Id;

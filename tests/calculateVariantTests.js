@@ -1,5 +1,5 @@
 var assert = require('assert');
-var calculate_variant = require('../src/variant_calculator.js').calculate_variant
+var calculate_variant = require('../src/variant_calculator.js')
 
 describe('calculate_variant', function() {
   it('Should return first variant for 100 distribution', function() {

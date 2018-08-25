@@ -1,5 +1,5 @@
 var assert = require('assert');
-var isSegmentForUser = require('../src/segment_calculator.js').isSegmentForUser
+var isSegmentForUser = require('../src/segment_calculator.js')
 
 describe('isSegment', function() {
   // Simple cases for expression evaluators
