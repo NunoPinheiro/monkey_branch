@@ -1,0 +1,49 @@
+---
+# Example for experiment
+type: experiment
+groups:
+  - name: group1
+    variables:
+      - Variable1: true
+      - Variable2: "potato"
+  - name: group2
+    variables:
+      - Variable1: false
+      - Variable2: "tomato"
+segments:
+  - segment1
+  - segment2
+id: experimentId
+---
+# Example for configuration
+type: configuration
+segments:
+  - segment1
+  - segment2
+variables:
+  - Variable1: true
+  - Variable3: 40
+---
+#Example for segment
+type: segment
+conditions:
+  # Attributes are either session, or custom attributes
+  # Session attributes are things calculated by our backend (e.g country)
+  # Custom attributes are attributes sent by the client
+  - email:
+    - endsWith: "@gmail.com"
+  - country: ”Portugal"
+---
+#Example of a user
+type: user
+# Some users may change id during lifetime (non-logged-in to loggedin).
+# MonkeyId should be their first ever id, so their experiments are consistent
+monkeyBranchId: myNonLoggedInId12103123
+# Variables overrides for this specific user
+variables:
+  - Variable1: False
+# To simulate the last experiments for a user we would need to know as well information about them (e.g last country)
+# This is specially required if we are accessing from another service/backend and we want to calculate the latest experiments for the user
+lastState:
+  - country: "Angola"
+  - city: "Luanda"
