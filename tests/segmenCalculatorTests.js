@@ -279,4 +279,16 @@ describe('isSegment', function() {
     }
     assert.equal(isSegmentForUser(segment, user), false);
   })
+
+  it('Should not consider user as part of the segment if the user has no attributes', function(){
+    // We get all exceptions from the expression evaluator as a meaning that the parameters given by the user are not valid
+    let segment = {
+      condition : {
+        country : { endsWith: "ki"}
+      }
+    }
+    let user = {
+    }
+    assert.equal(isSegmentForUser(segment, user), false);
+  })
 });

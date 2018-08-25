@@ -80,6 +80,9 @@ function evaluateAttr(params, userFieldValue){
 }
 
 module.exports = function(segment, user){
+  if(!user.attributes){
+    return false;
+  }
   for(let attr in segment.condition){
     let evaluation = evaluateAttr(segment.condition[attr], user.attributes[attr]);
     if(!evaluation){
