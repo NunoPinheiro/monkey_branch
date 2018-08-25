@@ -7,13 +7,16 @@
   "license": "MIT",
   "main": "",
   "dependencies": {
-    "md5": "^2.2.1"
+    "md5": "^2.2.1",
+    "redis": "^2.8.0",
+    "rewire": "^4.0.1"
   },
   "devDependencies": {
     "mocha": ""
   },
   "scripts": {
     "start": "node app.js",
-    "test": "mocha tests"
+    "test": "mocha tests",
+    "integrationTest": ". scripts/commands.sh; integration_tests"
   }
 }
