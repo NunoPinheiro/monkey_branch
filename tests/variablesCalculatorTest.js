@@ -1,5 +1,5 @@
 var assert = require('assert');
-var calculateVariables = require('../src/variables_calculator.js')
+var calculateVariables = require('../src/core/variables_calculator.js')
 
 describe('calculateVariables', function() {
   it("Should calculate empty variables when there are no segments", function(){
