@@ -2,7 +2,7 @@ let md5 = require('md5')
 module.exports = function(user, experiment){
   // We are going to use the monkeyBranchId of the user if available
   // Else we revert to the user id
-  let monkeyId = user.monkeyBranchId || user.Id;
+  let monkeyId = user.monkeyBranchId || user.id;
   let hash = md5(monkeyId + experiment.id)
   // Get a smaller version of the hash and convert it to int
   // Then we the modulo by 100 to get a percentage were to locate the user
@@ -14,7 +14,12 @@ module.exports = function(user, experiment){
     let currentVariant = experiment.variants[i]
     currentPercentage += currentVariant.percentage
     if(userLocation < currentPercentage){
-      return currentVariant
+      //We return a simplified version of the variant
+      return {
+        experimentId: experiment.id,
+        name: currentVariant.name,
+        variables: currentVariant.variables
+      }
     }
   }
 }

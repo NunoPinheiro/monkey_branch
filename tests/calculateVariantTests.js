@@ -5,7 +5,7 @@ describe('calculate_variant', function() {
   it('Should return first variant for 100 distribution', function() {
     let expectedVariantName = "OnlyVariant";
     let user = {
-      Id: "TestUser",
+      id: "TestUser",
     }
 
     let experiment = {
@@ -25,7 +25,7 @@ describe('calculate_variant', function() {
     //Calculated percentage for TestUserTestId is 51, so it should fall into second group
     let expectedVariantName = "secondVariant";
     let user = {
-      Id: "TestUser",
+      id: "TestUser",
     }
 
     let experiment = {
@@ -50,7 +50,7 @@ describe('calculate_variant', function() {
     //Calculated percentage for TestUserTestId is 67, so it should fall into the third group
     let expectedVariantName = "thirdVariant";
     let user = {
-      Id: "TestUser",
+      id: "TestUser",
     }
 
     let experiment = {
@@ -80,7 +80,7 @@ describe('calculate_variant', function() {
       //Calculated percentage for TestUserTestId is 67, so it should fall into the third group
       let expectedVariantName = "firstVariant";
       let user = {
-        Id: "TestUser",
+        id: "TestUser",
       }
 
       let experiment = {
@@ -103,6 +103,32 @@ describe('calculate_variant', function() {
 
       let calculatedVariant = calculate_variant(user, experiment)
       assert.equal(calculatedVariant.name, expectedVariantName)
+    })
+
+    //Validation of returned fields in the variant
+    it('Should return the experimentId, the variant name and the variables', function() {
+      let expectedVariantName = "OnlyVariant";
+      let expectedVariables = { variable1: true}
+      let expectedExperimentId = "TestId"
+
+      let user = {
+        id: "TestUser",
+      }
+
+      let experiment = {
+        id: expectedExperimentId,
+        variants: [
+          {
+            name: expectedVariantName,
+            percentage: 100,
+            variables:expectedVariables
+          }
+        ]
+      }
+      let calculatedVariant = calculate_variant(user, experiment)
+      assert.equal(calculatedVariant.name, expectedVariantName)
+      assert.equal(calculatedVariant.experimentId, expectedExperimentId)
+      assert.equal(calculatedVariant.variables, expectedVariables)
     })
 
 })
