@@ -1,0 +1,17 @@
+{
+  "name": "monkey-branch",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": ""
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha tests/processorTest.js"
+  }
+}
